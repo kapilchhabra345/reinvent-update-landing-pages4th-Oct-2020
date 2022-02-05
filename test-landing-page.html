@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Neo Stencil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="css/w3.css" type="text/css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<link rel="stylesheet" href="css/owl-carousel.css" type="text/css">
+<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+
+<link rel="stylesheet" href="css/animate.css" type="text/css">
+  <link href="css/test-landing-page.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script>new WOW().init();
+window.onload = function(){window.scrollTo(0,0);}
+</script>
+<script>
+function isNumber(evt) {
+	evt = (evt) ? evt : window.event;
+	var charCode = (evt.which) ? evt.which : evt.keyCode;
+	if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+		return false;
+	}
+	return true;
+}
+
+function onlyAlphabets(e, t) {
+	return (e.charCode > 64 && e.charCode < 91) || (e.charCode > 96 && e.charCode < 123) || e.charCode == 32;
+}
+
+//name validation function
+function IsAlpha( FirstName ) {
+	var regex = /^([a-zA-Z _']*)$/;
+	return regex.test( FirstName );
+}
+//email validation function
+function IsEmail( EmailAddress ) {
+	var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	return regex.test( EmailAddress );
+
+}
+//phone number validation
+function validateNumber( phone ) {
+	if ( phone.length >= 10 ) {
+		var RE = /^\d*[0-9](|.\d*[0-9]|,\d*[0-9])?$/;
+		return ( RE.test( phone ) );
+		return false;
+	} else {
+		return false;
+	}
+}
+
+function checkForm(){
+	var error = true;
+	var FirstName = $('#FirstName').val();
+	var Mobile = $('#Mobile').val();
+	var EmailAddress = $('#EmailAddress').val();
+	var mx_Message = $("#mx_Message").val();
+
+	if(FirstName == ""){
+		error = false;
+		$("#FirstName").addClass('error');
+	}else{
+		nmr = IsAlpha(FirstName);
+		if(nmr == true){
+			$("#FirstName").removeClass('error');
+		}else{
+			error = false;
+			$("#FirstName").addClass('error');
+		}
+	}
+	if(Mobile == "" ||  Mobile.length < 10){
+		error = false;
+		$("#Mobile").addClass('error');
+	}else{
+		vnr = validateNumber(phone)
+		if(vnr == true){
+			$("#Mobile").removeClass('error');
+		}else{
+			error = false;
+			$("#Mobile").addClass('error');
+		}
+	}
+	if(EmailAddress == ""){
+		error = false;
+		$("#EmailAddress").addClass('error');
+	}else{
+		$("#EmailAddress").removeClass('error');
+	}
+	if(mx_Message == ""){
+		error = false;
+		$("#mx_Message").addClass('error');
+	}else{
+		$("#mx_Message").removeClass('error');
+	}
+	//alert(error);
+	//return error;
+	if(error == false){
+		return error;
+	}
+}
+
+</script>
+<!-- HEADER START -->
+<header class="wow zoomIn">
+  <div class="container">
+    <div class="logo">
+      <img class="headerBookLogo" src="https://lh3.googleusercontent.com/7Rek8EgYYxLRsyJ4cDf-L5gcAaQ6VCDvCqdt8tDAAnNdxzdciByhLQkteQMsK6nte6p9eRWhOXBa2-1-wsJotGaP9g=w200" alt="Neostencil Logo">
+    </div>
+    <div class="cta_sec">
+      <div class="cta_top">
+        <a href="" class="headerBook enquiry-btn_"><i class="fa fa-calendar"></i> Enquire Now</a>
+        <a href="tel:+91-9810350512" class="headerBook"><i class="fa fa-phone"></i> +91-95990-75552</a>
+        <!--<a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>-->
+        <a class="hideinMobile whatsapp" target="_blank" href="https://web.whatsapp.com/send?phone=+91-9599075552&amp;text=Hello,I would like to know more about your services." ><img src="images/whatsapp.png" alt="Image" /></a>
+
+      </div>
+
+    </div>
+  </div>
+</header>
+<!-- HEADER END -->
+
+<!-- BANNER AND FORM START -->
+<section class="home_banner">
+  <div class="w3-row">
+    <div class="owl-carousel" id="banner_carousel">
+      <div class="item">
+        <div class="img_box">
+          <img class="hideinMobile" src="images/landing-page-banner-desktop-- (1).jpg" alt="Banner1">
+          <div class="intro wow zoomIn hideinMobile">
+       <h1><span>Sociology Courses for Civil Services Exam
+           </span>
+       </h1>
+    </div>
+          <img class="hideondsktp" src="images/landing-page-mobile (1).jpg" alt="Banner2">
+           <div class="intro wow zoomIn hideondsktp">
+       <h1><span>Sociology Courses for<br> Civil Services Exam
+           </span>
+       </h1>
+    </div>
+        </div>
+      </div>
+      <!-- item end here -->
+      <!--<div class="item">
+       <div class="img_box">
+        <img class="hideinMobile" src="landingPages/images/SOI-Award-Banner.png" alt="Banner1">
+        <img class="hideondsktp" src="landingPages/images/SOI Award Banner MOBILE.png" alt="Banner1">
+       </div>
+      </div>--><!-- item end here -->
+
+    </div>
+  </div>
+
+  <div class="home_banner_inner">
+    
+    <div class="enquiry_form wow zoomIn" id="enquiry_form">
+    <!--  <form action="thanks.php" method="post" onSubmit="return checkForm();">-->
+      <form method="post" enctype="multipart/form-data" onSubmit="return checkForm();"   action="https://web-in21.mxradon.com/t/FormTracker.aspx">
+        <h3>Helped over 500+ students achieve their UPSC dream rank</h3>
+        <div class="input_box">
+          <span><i class="fa fa-user"></i></span>
+         <!-- <input type="text" name="name" id="name" placeholder="Name" onKeyPress="return onlyAlphabets(event);">-->
+          <input type='text' name='FirstName' id='FirstName' placeholder='Name' onKeyPress='return onlyAlphabets(event);'  />
+        </div>
+        <div class="input_box">
+          <span><i class="fa fa-mobile"></i></span>
+         <!-- <input type="text" name="mobile" id="mobile" placeholder="Mobile" onKeyPress="return isNumber(event);" maxlength="10">-->
+          <input type='text' name='Mobile' id='Mobile'  placeholder='Mobile' onKeyPress='return isNumber(event);' maxlength="10" />
+        </div>
+        <div class="input_box">
+          <span><i class="fa fa-envelope"></i></span>
+          <!--<input type="email" name="email" id="email" placeholder="E-mail">-->
+          <input type='email'  name='EmailAddress' id='EmailAddress' placeholder='E-mail' />
+        </div>
+        <div class="input_box msg">
+          <span><i class="fa fa-envelope"></i></span>
+         <!-- <textarea name="message" id="message" placeholder="Message"></textarea>-->
+          <textarea name='mx_Message' id='mx_Message' placeholder='Message'></textarea>
+        </div>
+        <div class="submit_btn">
+          <!--<button type="submit" class="w3-btn">Consult Now</button>-->
+          <button  type="submit" class="w3-btn" id="form-submit-button"> Enquire Now</button>
+          <!--<input type="submit" name="submit" value="Consult Now"/>-->
+        </div>
+        <br />
+        <input type="hidden" name="MXHOrgCode" value="48723" />
+        <input type="hidden" name="MXHLandingPageId" value="1fd10b37-03e6-11eb-870e-0a22ff7e4b86" />
+        <input type="hidden" name="MXHFormBehaviour" value="0" />
+        <input type="hidden" name="MXHFormDataTransfer" value="0" />
+        <input type="hidden" name="MXHRedirectUrl" value="/" />
+        <input type="hidden" name="MXHAsc" value="3" />
+        <input type="hidden" name="MXHPageTitle" value="Sociology Optional" />
+        <input type="hidden" name="MXHOutputMessagePosition" value="0" />
+        <input type="hidden" name="MXHIsExternallyUsed" value="1" />
+      </form>
+      <script type="text/javascript">
+var MXLandingPageId = '1fd10b37-03e6-11eb-870e-0a22ff7e4b86';
+</script>
+
+
+
+
+    </div>
+
+  </div>
+</section>
+<!-- BANNER AND FORM END -->
+
+<!-- COUNTER START -->
+<section class="hideinMobile" id="counter_sec">
+  <div class="container">
+    <div class="w3-row usps_sec">
+      <div class="w3-col m5 uspFirstBox">
+        <div class="w3-row">
+          <div class="w3-col m6 s6 wow zoomIn">
+            <div class="usps_box">
+              <img src="images/user.png" alt="Image" />
+              <h2><!--<span class="small_font">Up to </span>--><span>1 in every 20</span></h2>
+              <p>Students Selection Ratio<!--<sup>*</sup>--></p>
+            </div>
+          </div>
+          <div class="w3-col m6 s6 wow zoomIn">
+            <div class="usps_box">
+              <img src="images/scholarship.png" alt="Image" />
+              <h2><span class="count">500</span>+</h2>
+              <p>Selections in Last Five Years</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col m7 uspSecondBox">
+        <div class="w3-row">
+          <div class="w3-col m4 s6 wow zoomIn">
+            <div class="usps_box">
+              <img src="images/online.png" alt="Image" />
+              <h2><span class="count">590</span>+</h2>
+              <p>Live/Online Courses</p>
+            </div>
+          </div>
+          <div class="w3-col m4 s6 wow zoomIn">
+            <div class="usps_box">
+              <img src="images/institute.png" alt="Image" />
+              <h2><span class="count">100</span>+</h2>
+              <p>Partner IAS Institute</p>
+            </div>
+          </div>
+          <div class="w3-col m4 wow zoomIn">
+            <div class="usps_box lastUsp">
+              <img src="images/star.png" alt="Image" />
+              <h2><span class="count">4.9</span>+</h2>
+              <p>Course Rating</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="hideondsktp" >
+  <div class="container">
+    <div class="w3-row usps_sec">
+     
+      <div class="owl-carousel" id="counter2">
+        <div class="item">
+            
+          <div class="w3-col m6 s12 wow zoomIn">
+            <div class="usps_box">
+              <img src="images/user.png" alt="Image" />
+              <h2><!--<span class="small_font">Up to </span>--><span>1 in every 20</span></h2>
+              <p>Students Selection Ratio<!--<sup>*</sup>--></p>
+            </div>
+          </div>
+          </div>
+          
+ <div class="item">
+          <div class="w3-col m6 s12 wow zoomIn">
+            <div class="usps_box">
+              <img src="images/scholarship.png" alt="Image" />
+              <h2><span class="count">500</span>+</h2>
+              <p>Selections in Last Five Years</p>
+            </div>
+          </div>
+</div>
+      
+
+        <div class="item">
+          <div class="w3-col m4 12 wow zoomIn">
+            <div class="usps_box">
+              <img src="images/online.png" alt="Image" />
+              <h2><span class="count">590</span>+</h2>
+              <p>Live/Online Courses</p>
+            </div>
+          </div>
+          </div>
+          
+           <div class="item">
+          <div class="w3-col m4 12 wow zoomIn">
+            <div class="usps_box">
+              <img src="images/institute.png" alt="Image" />
+              <h2><span class="count">100</span>+</h2>
+              <p>Partner IAS Institute</p>
+            </div>
+          </div>
+          </div>
+          
+           <div class="item">
+          <div class="w3-col 12 wow zoomIn">
+            <div class="usps_box lastUsp">
+              <img src="images/star.png" alt="Image" />
+              <h2><span class="count">4.9</span>+</h2>
+              <p>Course Rating</p>
+            </div>
+          </div>
+          </div>
+          </div>
+       
+ 
+ </div>
+   
+  </div>
+</section>
+<!-- COUNTER END -->
+
+<!-- TREATMENT START -->
+<section class="" >
+  <div class="container">
+
+    <div class="w3-row">
+      <div class="w3-col l12 heading">
+        <h1>OUR BEST SELLING SOCIOLOGY COURSES</h1>
+        <hr class="headingHr">
+        <p>By India's Top UPSC Institutes</p>
+      </div>
+    </div>
+
+    <div class="w3-row treatmentSlider hideinMobile">
+      <div class="owl-carousel" id="treatment_carousel">
+        <div class="item">
+
+          <div class="treatment_box wow zoomIn">
+            <img src="images/iasfinal.png" alt="Image" />
+            <p>Sociology Optional & <br>Test Series <br><span>by Praveen Kishore</span></p>
+            <div class="know_more"> <a href="https://neostencil.com/course/sociology-optional-test-series-praveen-kishore-upsc-mains-exam">Know more</a></div>
+          </div>
+         
+        </div><!-- item end here -->
+        <div class="item">
+        
+          <div class="treatment_box wow zoomIn">
+            <img src="images/feynfinal1.png" alt="Image" />
+            <p>Sociology <br>Optional <br><span>by Venkata Mohan </span></p>
+            <div class="know_more"> <a href="https://neostencil.com/course/sociology-optional-venkata-mohan-upsc-mains" >Know more</a></div>
+          </div>
+         
+        </div><!-- item end here -->
+        <div class="item">
+         
+          <div class="treatment_box wow zoomIn">
+            <img src="images/mukhfinal.png" alt="Image" />
+            <p>Sociology Optional Cum <br> Test Series <br> <span>by Mujtaba Hussain</span></p>
+            <div class="know_more"> <a href="https://neostencil.com/course/sociology-optional-cum-test-series-mujtaba-hussain-upsc-mains">Know more</a></div>
+          </div>
+         
+        </div><!-- item end here -->
+        <div class="item">
+        
+          <div class="treatment_box wow zoomIn">
+            <img src="images/tifinal.png" alt="Image" />
+            <p>Sociology Optional <br>Foundation Batch <br> <span>by Ritesh Kumar Singh</span></p>
+            <div class="know_more"> <a href="https://neostencil.com/course/sociology-optional-foundation-batch-ritesh-kumar-singh-upsc-mains">Know more</a></div>
+          </div>
+         
+        </div><!-- item end here -->
+        <!--<div class="item">
+         
+          <div class="treatment_box wow zoomIn">
+            <img src="https://lh3.googleusercontent.com/iqCDe-oD8Vrdyt2d_mJnXzi7UfiXjXvrQpraGwHQESRovkkRmIcih3IvXHqj_RuXMSFF_z_msc-CC5eB3h4IwIKU4w" alt="Image" />
+            <p>Sociology Enrichment</p>
+            <div class="know_more"> Know more</div>
+          </div>
+
+        </div>--><!-- item end here -->
+      </div>
+    </div>
+    
+    
+    <div class="w3-row mobiletreatment hideondsktp">
+        
+        <div class="w3-col s12">
+            
+           <div class="treatment_box wow zoomIn">
+            <img src="images/iasfinal.png" alt="Image" />
+            <p>Sociology Optional & Test Series <br><span>by Praveen Kishore</span></p>
+            <div class="know_more"><a href="https://neostencil.com/course/sociology-optional-test-series-praveen-kishore-upsc-mains-exam">Know more</a></div>
+          </div>
+            
+        </div>
+        
+        <div class="w3-col s12">
+            
+<div class="treatment_box wow zoomIn">
+            <img src="images/feynfinal1.png" alt="Image" />
+            <p>Sociology Optional <br><span>by Venkata Mohan </span></p>
+            <div class="know_more"> <a href="https://neostencil.com/course/sociology-optional-venkata-mohan-upsc-mains" >Know more</a></div>
+          </div>
+            
+            
+            
+        </div>
+        
+        
+        <div class="w3-col s12">
+            
+          <div class="treatment_box wow zoomIn">
+            <img src="images/mukhfinal.png" alt="Image" />
+            <p>Sociology Optional Cum Test Series <br> <span>by Mujtaba Hussain</span></p>
+            <div class="know_more">  <a href="https://neostencil.com/course/sociology-optional-cum-test-series-mujtaba-hussain-upsc-mains">Know more</a></div>
+          </div>
+            
+            
+            
+        </div>
+        
+        
+        <div class="w3-col s12">
+            
+                   <div class="treatment_box wow zoomIn">
+            <img src="images/tifinal.png" alt="Image" />
+            <p>Sociology Optional Foundation Batch <br> <span>by Ritesh Kumar Singh</span></p>
+            <div class="know_more"><a href="https://neostencil.com/course/sociology-optional-foundation-batch-ritesh-kumar-singh-upsc-mains">Know more</a></div>
+          </div>
+            
+            
+            
+        </div>
+
+
+      <!--<div class="w3-col s12">
+          
+          <div class="treatment_box wow zoomIn">
+            <img src="https://lh3.googleusercontent.com/iqCDe-oD8Vrdyt2d_mJnXzi7UfiXjXvrQpraGwHQESRovkkRmIcih3IvXHqj_RuXMSFF_z_msc-CC5eB3h4IwIKU4w" alt="Image" />
+            <p>Sociology Enrichment</p>
+            <div class="know_more"><a href="" class="enquiry-btn_">Know more</a></div>
+          </div>
+          
+          
+      </div>-->
+        
+        
+        
+    </div>
+
+  </div>
+</section>
+<!-- TREATMENT END -->
+
+<!-- why choose START -->
+<section class="whyChooseSection" >
+  <div class="container">
+
+    <div class="w3-row">
+      <div class="w3-col l12 whyChoseExpertBox">
+        <div class="w3-col l6 whyChose wow fadeInLeft">
+          <div class="w3-row">
+            <div class="w3-col l12 heading">
+              <h1>Our Promise</h1>
+              <hr class="headingHr">
+            </div>
+          </div>
+          <div class="row whyChooseLeft">
+            <ul>
+                 <li>
+               <img src="https://lh3.googleusercontent.com/C_QsDBm0OaXoXbYF-S82f8JGa9fYWXlxtUqv9Qpp8nCiwZw1T95fzuf25blsA9tqUsk5YWKy-FCcQydtyEPFB1xW_1g"><br>
+                <h4>Pay in EMIs</h4>
+                <p> 0% Interest EMIs</p>
+              </li>
+               <li>
+                <img src="https://lh3.googleusercontent.com/uNwRNRBNeSSdSKayL2Qv8znUjkFqHB5roN-_wQGyactjea313NUA0cOFP8FR24cwud2By8ifKLmqV823b4YcjM8Nv3Br"><br>
+                <h4>Refund Policy</h4>
+                <p>3-Days No Questions Asked Refund</p>
+              </li>
+              <li>
+                <img src="https://lh3.googleusercontent.com/8ymSfs0ZH6aNsdmG_j3g1evv7Y0QDeXl76Xtjoju7jKKIt7w92qfwI4N_49g2M5qQ8LarMVRLAl0o_WPt9xWqL1mJbA"><br>
+                <h4>24/7 access to classes</h4>
+                <p>Live and Recorded classes available throughout the course validity</p>
+              </li>
+              <li>
+                <img src="https://lh3.googleusercontent.com/IPf6XMzbYxmGDqXMTrjTgXD9uRvp66PZlr62qbLENZ1DilrF7VF4m0CTY4oo1Kz8semyxv_4uqtm8RcjPlBI3tBj2-I"><br>
+                <h4>Unlimited revision</h4>
+                <p>Play, pause, rewind as and when you want</p>
+              </li>
+              <li>
+                <img src="https://lh3.googleusercontent.com/pJxH5fjw_Zx27mi0zK-olpPinkvhQRZsczBiiAj6InzzZIvd3j14si2jcgD7QR_1CvLnDwrYbuDCSO2C2yTEpD-ufA"><br>
+                <h4>Free Study Material</h4>
+                <p>Dispatched within 3 days of enrollment</p>
+              </li>
+              <li>
+                <img src="https://lh3.googleusercontent.com/t21zuhLS01IAPNUbSt6HGkg1ir-RAqLSV1t4aHZlkAm9VLy8LYsnHYOghf4rEqP0BTEPEnnb0tOSqwNISj4gqRnrssM"><br>
+                <h4>Assignments and evaluation</h4>
+                <p>Timely query resolution and evaluation of assignments</p>
+              </li>
+              
+             
+             
+            </ul>
+          </div>
+        </div>
+        <div class="w3-col l6 wow fadeInRight ourexpert">
+          <div class="w3-row">
+            <div class="w3-col l12 heading">
+              <h1>Our Experts</h1>
+              <hr class="headingHr">
+            </div>
+          </div>
+          <div class="w3-row">
+            <div class="w3-row">
+              <div class="owl-carousel" id="expert_carousel">
+                <div class="item">
+                  <div class="expert_box">
+                    <img src="https://lh3.googleusercontent.com/DNypEwVNfgmhagCyJ5KapuW4V2WZSJsocwppt0GNrEOI0RT6bFkyAEqO328tt9fxqobGALZWj733jGc6sP7QWIZkgg" alt="Image" />
+                    <h3>Praveen Kishore</h3>
+                    <p>NICE IAS</p>
+                    <p>Mr. Praveen Kishore is himself a technocrat qualified from NIT Rourkela. In 1998, he took to teaching Sociology and since then has been devoted to guiding Civil Services aspirants.He started his own institute named NICE IAS.</p>
+                  </div>
+                </div><!-- item end here -->
+                <div class="item">
+                  <div class="expert_box">
+                    <img src="https://lh3.googleusercontent.com/ulCQq74KimzreWPO3fb1PmwS_7Xkyo3GMkVGDpKCGq6I_kbKIs_mDVODTEkhMuh-vMcb-9h6NDyemaqVB5zyel2WmZk" alt="Image" />
+                    <h3>Venkata Mohan</h3>
+                    <p>Feynman IAS</p>
+                    <p>Venkata Mohan is the Founder and Director of Feynman IAS. He is a renowned Sociology teacher famous for his writing approach for improving the writing skills for IAS exams. He is also the author of many books for Civil Services preparation.
+                    </p>
+                  </div>
+                </div><!-- item end here -->
+                <div class="item">
+                  <div class="expert_box">
+                    <img src="https://lh3.googleusercontent.com/xwC5zhLdx4fdq9UBbWxn2WvcALe_Z5ZLrf2BQzwhfv1osdM5MmUMK1DUs6lvPD7J3fTF16IWGT5wfw1ngR3lzlhLHQ" alt="Image" />
+                    <h3 class="pro_m">Professor Mujtaba Hussain</h3>
+                   <!-- <p>Feynman IAS</p>-->
+                    <p>Prof. (Retd.) Mujtaba Hussain is retired from Patna university, settled at Patna. He has been guiding Civil Services aspirants in Sociology optional and Social Issues part of General Studies. He has been giving expert advice and coaching to UPSC aspirants in sociology.
+                    </p>
+                  </div>
+                </div><!-- item end here -->
+                <div class="item">
+                  <div class="expert_box">
+                    <img src="https://lh3.googleusercontent.com/8blRNJxxTWAEfhMJ1eG5JRY3rZfo1vfPZqLtx4UzMkyO2CeEvCTwkZojFwkgu6G9v1xC1Tca7swONhvw9Ml8MrLP2W0" alt="Image" />
+                    <h3>Ritesh Kumar Singh</h3>
+                    <p>Toppers IAS</p>
+                    <p>Ritesh sir specializes in sociology optional, and has trained a vast number of students. The teacher helps you to score the highest marks and take you one notch above others, through concept clarity & comprehensive coverage of all the topics.
+                    </p>
+                  </div>
+                </div><!-- item end here -->
+               <!-- <div class="item">
+                  <div class="expert_box">
+                    <img src="https://lh3.googleusercontent.com/jyGSMV6skvWcdGSE70HKJMF8sL4V3Ju8xc4iyKsdi5PjvgwfY6DWt1vgKk_AgmB9FHfVBLDaGtnGrH2YjGlmuf4-mLo" alt="Image" />
+                    <h3>Krishna Pradeep</h3>
+                    <p>Feynman IAS</p>
+                    <p>Mr. Krishna Pradeep is the founder of 21st Century IAS. He is an expert faculty for Public Administration who has guided many students towards success in Civil Service Exam through his effective teaching methodology.
+                    </p>
+                  </div>
+                </div>--><!-- item end here -->
+
+                <!--<div class="item">
+               <div class="expert_box">
+                <img src="images/dr-tara.png" alt="Image" />
+                <h3>Dr. Tara Fotedar</h3>
+                <p>M.D., Infertility specialist</p>
+                <p>To put my hard work into my career and to bring out the name of soi on to the top with more and more successful pregnancies.</p>
+               </div>
+                </div>--><!-- item end here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-row whyBookAppo">
+      <a href="#" class="w3-btn enquiry-btn_" >Enquire Now</a>
+    </div>
+
+  </div>
+</section>
+<!-- TREATMENT END -->
+
+<!-- call start -->
+<section class="let_us_call">
+  <div class="container">
+    <div class="w3-row">
+      <div class="w3-col m6 nopadding wow fadeInLeft order_in_mobile">
+        <div class="contact_box">
+          <div class="contact_box_inner">
+            <p><sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>NeoStencil’s online courses helped me immensely in
+              my UPSC preparation. I highly recommend to opt online courses from NeoStencil to all those who are aiming for IAS. If I
+              can do it, you can do it too. All the best.<sub><i class="fa fa-quote-right" aria-hidden="true"></i></sub></p>
+            <p class="content_p_s">Pradeep Singh</p>
+            <p class="content_p_s_r">AIR - 1, UPSC 2019</p>
+            <!--<h4>Call us to schedule your fertility consultation.</h4>
+            <a href="tel:+91-9810350512" class="w3-btn"><i class="fa fa-phone-square"></i> +91-9810350512</a>-->
+          </div>
+        </div>
+      </div>
+      <div class="w3-col m6 nopadding wow fadeInRight">
+        <iframe width="100%" height="330" src="https://www.youtube.com/embed/bu5KxqxNIC4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!--<div class="let_us_call_you_back_form">
+
+        <h1>Let us call you back</h1>
+          <form>
+          <div class="form_inner">
+           <div class="input_box">
+             <input type="text" name="name" placeholder="Name">
+           </div>
+           <div class="input_box">
+             <input type="text" name="name" placeholder="Phone">
+            </div>
+            <div class="input_box">
+              <button type="submit" class="w3-btn" name="submit">Submit</button>
+            </div>
+            </div>
+          </form>
+        </div>-->
+
+      </div><!-- col l7 end here -->
+    </div>
+  </div>
+</section>
+<!-- call end -->
+
+<!-- SUCCESS START -->
+<section class="patient_story_sec">
+  <div class="container">
+    <div class="w3-col l12 heading">
+      <h1>UPSC Toppers</h1>
+      <hr class="headingHr">
+      <p>Glorious tradition to produce excellent results</p>
+    </div>
+
+    <div class="w3-row">
+      <div class="carousel_wrap">
+        <div class="owl-carousel" id="patient_story_carousel">
+          <div class="item">
+            <div class="story_box wow zoomIn">
+              <div class="quotes"><img src="images/quotes.png" alt="quotes"></div>
+              <p>NeoStencil's online courses helped me immensely while I was preparing for UPSC from my hometown in Sonipat. I highly recommend NeoStencil to all those aiming for IAS. Through this platform, UPSC aspirants from rural areas are able to prepare under the guidance of the top IAS Institutes of the country. If I can do it, you can do it too. All the best. - Pradeep Singh, AIR 1, UPSC 2019
+              </p>
+              <img src="https://lh3.googleusercontent.com/p3oKeNXgK7wA68-tZUAeq4mdAOyrjoyN-07spR2N4-hLeW1BVaeal142o0nnjI7kxK-bgqE4gm9u091QjF7CMAiHgcI" alt="quotes" class="profile">
+              <h4>Pradeep Singh, AIR 1, UPSC-2019
+              </h4>
+              <div class="img_box">
+                <img src="images/patient_img.png" alt="patient_img">
+              </div>
+            </div>
+          </div><!-- item end here -->
+          <div class="item">
+            <div class="story_box wow zoomIn">
+              <div class="quotes"><img src="images/quotes.png" alt="quotes"></div>
+              <p>Thank you NeoStencil for playing a big role in my UPSC preparation. I had done two foundation courses from NeoStencil for my Optional Philosophy and for General Studies. Among other platforms, I found NeoStencil as one of the best platforms for UPSC preparation.
+              </p>
+              <img src="https://lh3.googleusercontent.com/zKQKgenIphXimA3ev9FW3nEVNqeQ29mmdef72hBEI5Y9o2yB-Wk8Aqo1BYHrVTQhUuxTS57B8TzgLcxe3NEREqxyswo" alt="quotes" class="profile">
+              <h4>Himanshu Gupta, AIR 27, UPSC-2019
+              </h4>
+              <div class="img_box">
+                <img src="images/patient_img.png" alt="patient_img">
+              </div>
+            </div>
+          </div><!-- item end here -->
+          <div class="item">
+            <div class="story_box wow zoomIn">
+              <div class="quotes"><img src="images/quotes.png" alt="quotes"></div>
+             <p>NeoStencil has been very helpful throughout the course of my UPSC preparation. The discussion on the answers right after the test were very important. The live as well as recorded lectures were very helpful. It is a gateway to prepare for UPSC from wherever we are sitting.
+             </p>
+             <img src="https://lh3.googleusercontent.com/jHIMQ98RrSrNAgDryvNL38IT-jYnZJzNigvLOtwTpcvfmQiq3HVRKO2yp8ymlUWHT-W4rXhwWWXh-3ctvaXDori1_iM5" alt="quotes" class="profile">
+              <h4>Dipanker Choudhary, AIR 42, UPSC-2019
+              </h4>
+              <div class="img_box">
+                <img src="images/patient_img.png" alt="patient_img">
+              </div>
+            </div>
+          </div><!-- item end here -->
+          <div class="item">
+            <div class="story_box wow zoomIn">
+              <div class="quotes"><img src="images/quotes.png" alt="quotes"></div>
+             <p>I enrolled in General Studies courses and test series on NeoStencil. This was my 6th and final attempt at UPSC and the online courses were a great part of my preparation which I got through this platform. The video quality, support from teachers and the NeoStencil team, were all fabulous. I’d definitely suggest serious aspirants to leverage the platform to access some of the best IAS Institutes and focus more on hardwork than wasting time in free resources or in travelling.
+             </p>
+             <img src="https://lh3.googleusercontent.com/aKqGqnnXfj6l0pS_oGubLEeaoM3reOIrwlIpah2vs0LNSJ9_Ts7Tx3l1-HrN6AH99ofU2QgCY3kJsPoQLZAP3VEout0" alt="quotes" class="profile">
+              <h4>Vipul Khanna, AIR 129 UPSC-2019
+              </h4>
+              <div class="img_box">
+                <img src="images/patient_img.png" alt="patient_img">
+              </div>
+            </div>
+          </div><!-- item end here -->
+          <div class="item">
+            <div class="story_box wow zoomIn">
+              <div class="quotes"><img src="images/quotes.png" alt="quotes"></div>
+              <p>NeoStencil being a very good platform provides online classes that helped me to secure the rank as well. It is very beneficial for the students who do not live physically close to the study centers. Through this platform one can access good quality online courses and test series.
+              </p>
+              <img src="https://lh3.googleusercontent.com/E-YGeI3ib6RSDgSf-S_QJd7_fUTYyThA6ZXMWd733lKpC-i8-8TQ5aAJcptx0ByUg6YXCWOZy5kqKKfNahpGhlsMSvM" alt="quotes" class="profile">
+              <h4>Arushi Mishra, AIR 229, UPSC-2019
+              </h4>
+              <div class="img_box">
+                <img src="images/patient_img.png" alt="patient_img">
+              </div>
+            </div>
+          </div><!-- item end here -->
+          <div class="item">
+            <div class="story_box wow zoomIn">
+              <div class="quotes"><img src="images/quotes.png" alt="quotes"></div>
+              <p>From my hometown in Chhattisgarh, I have been mostly preparing through online help for the past two years and NeoStencil has played a very important role in my success. Online courses definitely provide a level playing field for students from remote regions to compete at national level. Thanks to NeoStencil, I could attend courses of leading institutes and realize my IAS dream.
+              </p>
+              <img src="https://lh3.googleusercontent.com/8DOQc9eK6S9dbRgWprDptrtBi9bMh8exuOpmmZoM9UrHV61tnvoyd57qOM5NuMWK5zh0P6xBxL88SduIcVycz7PQa7k" alt="quotes" class="profile">
+              <h4>Namrata Jain, AIR 12, UPSC-2018
+              </h4>
+              <div class="img_box">
+                <img src="images/patient_img.png" alt="patient_img">
+              </div>
+            </div>
+          </div><!-- item end here -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- SUCCESS END -->
+
+<section class="featured hideinMobile">
+    
+    <div class="container">
+        
+        <div class="w3-col l12 heading">
+      <h1>Featured In</h1>
+      <hr class="headingHr">
+     
+    </div>
+        
+        <div class="w3-row">
+            
+                  <div class="owl-carousel" id="featured">
+        <div class="item">
+            
+            <div class="w3-col m3">
+<div class="featurebox">
+               <img src="images/yourstory.png"> 
+                </div>
+                
+                
+            </div>
+           
+            
+              
+            <div class="w3-col m3">
+                <div class="featurebox">
+               <img src="images/indiatv.png"> 
+                
+                </div>
+                
+            </div>
+           
+            
+              
+            <div class="w3-col m3">
+<div class="featurebox">            
+<img src="images/h1.png"> 
+                </div>
+                
+                
+            </div>
+
+            
+
+            <div class="w3-col m3">
+                <div class="featurebox">
+               <img src="images/ecotimes.png"> 
+                </div>
+                
+                
+            </div>
+            </div>
+            
+            
+            
+              <div class="item">
+            
+            <div class="w3-col m3">
+<div class="featurebox">
+               <img src="images/timesofindia.png"> 
+                </div>
+                
+                
+            </div>
+           
+            
+              
+            <div class="w3-col m3">
+                <div class="featurebox">
+               <img src="images/ndtv.png"> 
+                
+                </div>
+                
+            </div>
+           
+            
+              
+            <div class="w3-col m3">
+<div class="featurebox">            
+<img src="images/dna.png"> 
+                </div>
+                
+                
+            </div>
+
+            
+
+            <div class="w3-col m3">
+                <div class="featurebox">
+               <img src="images/business1.png"> 
+                </div>
+                
+                
+            </div>
+            </div>
+            
+            
+            <div class="item">
+            
+            <div class="w3-col m3">
+<div class="featurebox">
+               <img src="images/express1.png"> 
+                </div>
+                
+                
+            </div>
+           
+            
+              
+            <div class="w3-col m3">
+                <div class="featurebox">
+               <img src="images/wire.png"> 
+                
+                </div>
+                
+            </div>
+           
+            
+              
+            <div class="w3-col m3">
+<div class="featurebox">            
+<img src="images/insider.png"> 
+                </div>
+                
+                
+            </div>
+
+            
+
+            <div class="w3-col m3">
+                <div class="featurebox">
+               <img src="images/knowstart.png"> 
+                </div>
+                
+                
+            </div>
+            </div>
+            
+            </div>
+            
+        </div>
+        
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</section>
+<section class="featured hideondsktp">
+    
+    <div class="container">
+        
+        <div class="w3-col l12 heading">
+      <h1>Featured In</h1>
+      <hr class="headingHr">
+     
+    </div>
+        
+        <div class="w3-row">
+            
+                  <div class="owl-carousel" id="featured_mobile">
+        <div class="item">
+            
+            <div class="w3-col m3">
+<div class="featurebox">
+               <img src="images/yourstory.png"> 
+                </div>
+                
+                
+            </div>
+           </div>
+            
+                   <div class="item">   
+            <div class="w3-col m3">
+                <div class="featurebox">
+               <img src="images/indiatv.png"> 
+                
+                </div>
+                
+            </div>
+           </div>
+            
+                      <div class="item">
+            <div class="w3-col m3">
+<div class="featurebox">            
+<img src="images/h1.png"> 
+                </div>
+                
+                
+            </div>
+</div>
+            
+        <div class="item">
+            <div class="w3-col m3">
+                <div class="featurebox">
+               <img src="images/ecotimes.png"> 
+                </div>
+                
+                
+            </div>
+            </div>
+            
+            
+            
+              <div class="item">
+            
+            <div class="w3-col m3">
+<div class="featurebox">
+               <img src="images/timesofindia.png"> 
+                </div>
+                
+                
+            </div>
+           </div>
+            
+                   <div class="item">   
+            <div class="w3-col m3">
+                <div class="featurebox">
+               <img src="images/ndtv.png"> 
+                
+                </div>
+                
+            </div>
+           </div>
+            
+                      <div class="item">
+            <div class="w3-col m3">
+<div class="featurebox">            
+<img src="images/dna.png"> 
+                </div>
+                
+                
+            </div>
+</div>
+            
+        <div class="item">
+            <div class="w3-col m3">
+                <div class="featurebox">
+               <img src="images/business1.png"> 
+                </div>
+                
+                
+            </div>
+            </div>
+            
+            
+            <div class="item">
+            
+            <div class="w3-col m3">
+<div class="featurebox">
+               <img src="images/express1.png"> 
+                </div>
+                
+                
+            </div>
+           </div>
+            
+                      <div class="item">
+            <div class="w3-col m3">
+                <div class="featurebox">
+               <img src="images/wire.png"> 
+                
+                </div>
+                
+            </div>
+           </div>
+            
+                     <div class="item"> 
+            <div class="w3-col m3">
+<div class="featurebox">            
+<img src="images/insider.png"> 
+                </div>
+                
+                
+            </div>
+</div>
+            
+        <div class="item">
+            <div class="w3-col m3">
+                <div class="featurebox">
+               <img src="images/knowstart.png"> 
+                </div>
+                
+                
+            </div>
+            </div>
+            
+            </div>
+            
+        </div>
+        
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</section>
+
+
+<!--<div class="our_locations">
+  <div class="container">
+    <div class="heading">
+      <h1>Our Presence</h1>
+      <hr class="headingHr">
+    </div>
+    <div class="our_locations_inner">
+      <p>Delhi | Hyderabad | Chennai | Jaipur | Pune | Lucknow | Trivandrum | Kota </p>
+      
+    </div>
+  </div>
+</div>--><!-- our_locations end here -->
+
+<footer>
+  <div class="container">
+    <div class="w3-row">
+      <div class="w3-col m6 s12 copyright w3-left-align wow zoomIn">
+        <p> @2014-2019, NeoStencil, Inc. All Rights Reserved.</p>
+      </div>
+      <div class="w3-col m6 s12 designby w3-right-align wow zoomIn">
+<p>Our Presence : Delhi | Hyderabad | Chennai | Jaipur | Pune | Lucknow | Trivandrum | Kota </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="action_btns_bottom">
+  <div class="action_inner">
+    <a href="tel:+91-9810350512" class="phn-btn" target="_blank"><span><i class="fa fa-phone"></i></span> Call Us</a>
+    <a href="#" class="enquiry-btn_"><span><i class="fa fa-pencil"></i></span>&nbsp;Enquire</a>
+    <a href="whatsapp://send?phone=+91-9599075552&amp;text=Hello, I would like to know more about your services." class="wh-btn" target="_blank"><span><i class="fa fa-whatsapp"></i></span>&nbsp;Whatsapp</a>
+
+  </div>
+</div>
+
+
+<script>
+
+//banner_carousel
+ $('#banner_carousel').owlCarousel({
+   loop:true,
+    nav:false,
+	dots:false,
+	autoplayTimeout:4000,
+	autoplay:false,
+	smartSpeed:3000,
+	responsive:{
+	  0:{items:1},
+	  500:{items:1},
+	  767:{items:1},
+	  800:{items:1}
+	}
+ });
+ 
+ //featured
+ 
+ $('#featured').owlCarousel({
+   loop:true,
+    nav:true,
+	dots:false,
+	autoplayTimeout:4000,
+	autoplay:false,
+	smartSpeed:3000,
+	responsive:{
+	  0:{items:1},
+	  500:{items:1},
+	  767:{items:1},
+	  800:{items:1}
+	}
+ });
+ 
+  $('#featured_mobile').owlCarousel({
+   loop:true,
+    nav:true,
+	dots:false,
+	autoplayTimeout:4000,
+	autoplay:false,
+	smartSpeed:3000,
+	responsive:{
+	  0:{items:1},
+	  500:{items:1},
+	  767:{items:1},
+	  800:{items:1}
+	}
+ });
+ //counter_mobile 
+ 
+ $('#counter2').owlCarousel({
+   loop:true,
+    nav:true,
+	dots:false,
+	autoplayTimeout:4000,
+	autoplay:true,
+	autoplayHoverPause:true,
+	smartSpeed:3000,
+	responsive:{
+	  0:{items:1},
+	  500:{items:1},
+	  767:{items:1},
+	  800:{items:1}
+	}
+ });
+ /*
+ $('.location_carousel').owlCarousel({
+   loop:false,
+    nav:false,
+	dots:false,
+	autoplay:false,
+	responsive:{
+	  0:{items:1},
+	  480:{items:2},
+	  580:{items:3},
+	  780:{items:4,loop:true,dots:true,autoplayTimeout:2000,autoplay:true,smartSpeed:2000
+
+	  },
+	  1200:{items:6}
+	},
+
+ });*/
+//enquiry_btn
+/*$('.enquiry-btn_').click(function(){
+  $('html,body').animate({
+      scrollTop: $('#enquiry_form').offset().top
+  },1000);
+  $('#enquiry_form input:first').focus();
+
+});*/
+
+//consult now
+$('.enquiry-btn_').click(function(e){
+    e.preventDefault();
+    $('body,html').animate({
+        scrollTop:$('#enquiry_form').offset().top
+    },1000);
+    $('#enquiry_form input:first').focus();
+});
+
+//testi_carousel
+ var $testi = $('#testi_carousel').owlCarousel({
+   loop:true,
+   nav:false,
+   dots:false,
+   autoplay:true,
+   autoplayHoverPause:true,
+   	items:1,
+ });
+ $('.testi_nav .prev_btn').click(function(){
+	$testi.trigger('prev.owl.carousel');
+ });
+ $('.testi_nav .next_btn').click(function(){
+	$testi.trigger('next.owl.carousel');
+ });
+
+
+
+//expert_carousel
+$('#expert_carousel').owlCarousel({
+  loop:true,
+  nav:false,
+  dots:true,
+  autoplay:true,
+  autoplayTimeout:5000,
+  autoplayHoverPause:true,
+  smartSpeed:3000,
+  responsive:{
+    0:{items:1},
+    400:{items:1},
+    600:{items:1},
+    800:{items:1},
+  }
+});
+
+
+//treatment_carousel
+$('#treatment_carousel').owlCarousel({
+  loop:true,
+  nav:true,
+  dots:false,
+  autoplay:true,
+  autoplayHoverPause:true,
+  responsive:{
+    0:{items:1},
+    400:{items:1},
+    600:{items:2},
+    800:{items:3},
+  }
+});
+$( ".owl-prev").html('<i class="fa fa-chevron-left"></i>');
+$( ".owl-next").html('<i class="fa fa-chevron-right"></i>');
+
+//patient_carousel
+$('#patient_story_carousel').owlCarousel({
+	 loop:true,
+	 nav:true,
+	 dots:false,
+	 autoplay:true,
+	 autoplayPauseHover:true,
+	 responsive:{
+		 0:{items:1},
+		 600:{items:2},
+		 900:{items:3},
+	 },
+ })
+$( ".owl-prev").html('<i class="fa fa-chevron-left"></i>');
+$( ".owl-next").html('<i class="fa fa-chevron-right"></i>');
+
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+<script>
+//counter
+$('.count').counterUp({
+    delay: 10,
+    time: 2000
+});
+</script>
+<script>
+$(document).ready(function(){
+ window.onscroll = function(){
+ var scroll_top = document.body.scrollTop || document.documentElement.scrollTop;
+ if(scroll_top > 50){
+   $('header').addClass('fixed');
+ }else{
+   $('header').removeClass('fixed');
+ }
+ }//window.onscroll end here//
+});
+</script>
+
+
+</body>
+</html>
